@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.ricardo.conadapp.ProhibidaActivity">
+
+    <include layout="@layout/toolbar_app"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.design.widget.CoordinatorLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <ImageView
+                android:tint="@color/prohibida_primary"
+                android:src="@drawable/adelante"
+                android:layout_gravity="center|right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.github.barteksc.pdfviewer.PDFView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/pdfview"
+                android:layout_width="250dp"
+                android:layout_height="match_parent">
+            </com.github.barteksc.pdfviewer.PDFView>
+            <ImageView
+                android:rotation="180"
+                android:tint="@color/prohibida_primary"
+                android:src="@drawable/adelante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"/>
+        </android.support.design.widget.CoordinatorLayout>
+        <TextView
+            android:autoLink="web"
+            android:textColorLink="@color/busqueda_primary_dark"
+            android:padding="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lista_prohibida_texto"/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+

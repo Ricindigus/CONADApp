@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ricardo.conadapp.PasosASeguirActivity">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_numero_paso"
+            android:textStyle="bold"
+            android:textColor="@color/icons"
+            android:background="@color/primary_text"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PASO 1"
+            android:layout_alignParentTop="true"
+            />
+        <RelativeLayout
+            android:id="@+id/layout_pasos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/formulario_aut">
+            <TextView
+                android:autoLink="web"
+                android:textColorLink="@color/busqueda_primary_dark"
+                android:layout_height="65dp"
+                android:layout_alignParentBottom="true"
+                android:background="#66000000"
+                android:id="@+id/txt_descripcion_paso"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/icons"
+                android:layout_width="match_parent"
+                android:text="@string/aut_paso1" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>
