@@ -12,26 +12,35 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.ricardo.conadapp.fragments.SancionadoFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class SancionadoActivity extends AppCompatActivity {
     int controlador = 0;
     private float x1,x2;
     static final int MIN_DISTANCE = 150;
-    int[] fragments = {R.id.tab_1, R.id.tab_2, R.id.tab_3, R.id.tab_4, R.id.tab_5,
-            R.id.tab_6, R.id.tab_7, R.id.tab_8, R.id.tab_9, R.id.tab_10};
     int fragmentActual = 0;
     int fragmentAnterior = 0;
     Fragment fragment;
     BottomBar bottomBar;
     Toolbar toolbar;
+    ArrayList<Integer> tabs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sancionado);
+        tabs = new ArrayList<Integer>();
+        tabs.add(R.id.tab_1);tabs.add(R.id.tab_2);tabs.add(R.id.tab_3);tabs.add(R.id.tab_4);
+        tabs.add(R.id.tab_5);tabs.add(R.id.tab_6);tabs.add(R.id.tab_7);tabs.add(R.id.tab_8);
+        tabs.add(R.id.tab_9);tabs.add(R.id.tab_10);
+
         showToolbar("¿Cuándo soy sancionado?",true);
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -39,65 +48,17 @@ public class SancionadoActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.sancionado_primary_dark));
         }
+        ImageView imgP = (ImageView)findViewById(R.id.imagen_fragment_sancionado);
+        Picasso.with(getApplicationContext()).load("http://imageshack.com/a/img922/6029/8E9DB5.png").into(imgP);
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        bottomBar.setDefaultTab(fragments[fragmentActual]);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 if(controlador == 1){
-                    switch(tabId){
-                        case R.id.tab_1:
-                            fragment = new SancionadoFragment(0);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 0;
-                            break;
-                        case R.id.tab_2:
-                            fragment = new SancionadoFragment(1);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 1;
-                            break;
-                        case R.id.tab_3:
-                            fragment = new SancionadoFragment(2);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 2;
-                            break;
-                        case R.id.tab_4:
-                            fragment = new SancionadoFragment(3);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 3;
-                            break;
-                        case R.id.tab_5:
-                            fragment = new SancionadoFragment(4);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 4;
-                            break;
-                        case R.id.tab_6:
-                            fragment = new SancionadoFragment(5);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 5;
-                            break;
-                        case R.id.tab_7:
-                            fragment = new SancionadoFragment(6);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 6;
-                            break;
-                        case R.id.tab_8:
-                            fragment = new SancionadoFragment(7);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 7;
-                            break;
-                        case R.id.tab_9:
-                            fragment = new SancionadoFragment(8);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 8;
-                            break;
-                        case R.id.tab_10:
-                            fragment = new SancionadoFragment(9);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 9;
-                            break;
-                        default:break;
-                    }
+                    int indice = tabs.indexOf(tabId);
+                    fragment = new SancionadoFragment(indice);
+                    fragmentAnterior = fragmentActual;
+                    fragmentActual = indice;
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     if(fragmentActual > fragmentAnterior)
                         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
@@ -109,6 +70,7 @@ public class SancionadoActivity extends AppCompatActivity {
                 else{controlador = 1;}
             }
         });
+        bottomBar.setDefaultTab(R.id.tab_1);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event)
@@ -121,27 +83,16 @@ public class SancionadoActivity extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = event.getX();
                 float deltaX = x2 - x1;
-
                 if (Math.abs(deltaX) > MIN_DISTANCE)
                 {
-                    // Left to Right swipe action
-                    if (x2 > x1)
+                    if (x2 > x1)// Left to Right swipe action
                     {
-                        if(fragmentActual > 0){
-                            bottomBar.selectTabAtPosition(fragmentActual-1);
-                        }
+                        if(fragmentActual > 0)  bottomBar.selectTabAtPosition(fragmentActual-1);
                     }
-                    // Right to left swipe action
-                    else
+                    else  // Right to left swipe action
                     {
-                        if(fragmentActual < 9) {
-                            bottomBar.selectTabAtPosition(fragmentActual+1);
-                        }
+                        if(fragmentActual < 9) bottomBar.selectTabAtPosition(fragmentActual+1);
                     }
-                }
-                else
-                {
-                    // consider as something else - a screen tap for example
                 }
                 break;
         }

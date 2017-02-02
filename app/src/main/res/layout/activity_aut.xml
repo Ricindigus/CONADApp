@@ -17,12 +17,13 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
-        <FrameLayout
-            android:background="@drawable/tomar_medicamento"
+        <ImageView
+            android:id="@+id/imagen_aut"
+            android:background="@drawable/default_image"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
-        </FrameLayout>
+        </ImageView>
         <LinearLayout
             android:orientation="vertical"
             android:padding="@dimen/activity_vertical_margin"

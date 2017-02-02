@@ -2,6 +2,12 @@ package com.example.ricardo.conadapp.fragments;
 
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +19,14 @@ import android.widget.TextView;
 
 import com.example.ricardo.conadapp.R;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +37,7 @@ public class SancionadoFragment extends Fragment {
             , R.string.texto_sancionado_4, R.string.texto_sancionado_5, R.string.texto_sancionado_6
             , R.string.texto_sancionado_7, R.string.texto_sancionado_8, R.string.texto_sancionado_9
             , R.string.texto_sancionado_10};
+
 //    private int[] imagenes = {R.drawable.muestra_orina, R.drawable.control_doping, R.drawable.alteracion_doping
 //            , R.drawable.sustancia_prohibida, R.drawable.administracion_doping, R.drawable.falta_doping
 //            , R.drawable.uso_sustancia_prohibida, R.drawable.trafico_sustancia_prohibida, R.drawable.conspiracion_dopaje
@@ -61,5 +76,4 @@ public class SancionadoFragment extends Fragment {
             Picasso.with(getContext()).load(R.drawable.muestra_orina).into(imageView);
         return rootView;
     }
-
 }

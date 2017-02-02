@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_previo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ricardo.conadapp.fragments.SancionadoFragment">
@@ -26,7 +27,7 @@
             android:background="#55000000"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/texto_sancionado_1" />
+            />
     </LinearLayout>
 
 </FrameLayout>

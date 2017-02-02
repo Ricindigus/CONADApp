@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 public class RiesgosActivity extends AppCompatActivity {
 
@@ -72,9 +73,12 @@ public class RiesgosActivity extends AppCompatActivity {
                 R.id.salud_ambos_imagen_7, R.id.salud_ambos_imagen_8, R.id.salud_ambos_imagen_9,
                 R.id.salud_ambos_imagen_10, R.id.salud_ambos_imagen_11};
 
-        private String imagenesHombre[] = {"http://imageshack.com/a/img923/4089/lyLsHI.png", "http://imageshack.com/a/img924/1755/O0XyeW.png",
-                "http://imageshack.com/a/img922/4066/OrRMEc.png", "http://imageshack.com/a/img924/6627/kBfKqL.png","http://imageshack.com/a/img923/1268/ufm2Kq.png",
-        "http://imageshack.com/a/img923/4973/S5SQzh.png}"};
+        private RequestCreator imagenesHombre[] = {Picasso.with(getContext()).load("http://imageshack.com/a/img923/4089/lyLsHI.png"),
+                Picasso.with(getContext()).load("http://imageshack.com/a/img924/1755/O0XyeW.png"),
+                Picasso.with(getContext()).load("http://imageshack.com/a/img922/4066/OrRMEc.png"),
+                Picasso.with(getContext()).load("http://imageshack.com/a/img924/6627/kBfKqL.png"),
+                Picasso.with(getContext()).load("http://imageshack.com/a/img923/1268/ufm2Kq.png"),
+                Picasso.with(getContext()).load("http://imageshack.com/a/img923/4973/S5SQzh.png")};
         private String imagenesMujer[] = {"http://imageshack.com/a/img924/4417/kHKvVm.png", "http://imageshack.com/a/img922/9962/2JzvJv.png",
                 "http://imageshack.com/a/img923/2932/RhvhsB.png", "http://imageshack.com/a/img924/2773/yqlGSC.png", "http://imageshack.com/a/img924/2389/dRj58T.png"};
         private String imagenesAmbos[] = {"http://imageshack.com/a/img922/9350/Ag6owx.png", "http://imageshack.com/a/img924/7328/dVAq4r.png",
@@ -103,7 +107,8 @@ public class RiesgosActivity extends AppCompatActivity {
                     ImageView imgView;
                     for (int i = 0; i <numH ; i++) {
                         imgView = (ImageView)rootView.findViewById(cardsHombre[i]);
-                        Picasso.with(getContext()).load(imagenesHombre[i]).into(imgView);
+//                        Picasso.with(getContext()).load(imagenesHombre[i]).into(imgView);
+                        imagenesHombre[i].into(imgView);
                     }
                     for (int i = 0; i <numM ; i++) {
                         imgView = (ImageView)rootView.findViewById(cardsMujer[i]);

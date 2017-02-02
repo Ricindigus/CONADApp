@@ -29,10 +29,10 @@ public class PasosASeguirActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private int fragmentActual = 1;
-    private float x1,x2;
     private FloatingActionButton fabAtras;
     private FloatingActionButton fabAdelante;
-    static final int MIN_DISTANCE = 150;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +47,9 @@ public class PasosASeguirActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.aut_primary_dark));
         }
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.aut_container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         fabAtras = (FloatingActionButton) findViewById(R.id.fab_atras);
         fabAdelante = (FloatingActionButton) findViewById(R.id.fab_adelante);
 
@@ -84,8 +79,10 @@ public class PasosASeguirActivity extends AppCompatActivity {
         private static final String ARG_SECTION_NUMBER = "section_number";
         private int[] textos = {R.string.aut_paso1, R.string.aut_paso2, R.string.aut_paso3
                 , R.string.aut_paso4};
-        private int[] imagenes = {R.drawable.formulario_aut, R.drawable.correo_electronico, R.drawable.panel_expertos
-                , R.drawable.conad_informara};
+//        private int[] imagenes = {R.drawable.formulario_aut, R.drawable.correo_electronico, R.drawable.panel_expertos
+//                , R.drawable.conad_informara};
+        private String imagenes[] = {"http://imageshack.com/a/img924/4244/l0V1fx.png", "http://imageshack.com/a/img922/4672/xwbZpC.png",
+                "http://imageshack.com/a/img923/1306/DI39Ba.png", "http://imageshack.com/a/img922/382/7NOOB0.png"};
         public PlaceholderFragment() {
         }
         public static PlaceholderFragment newInstance(int sectionNumber) {
@@ -100,47 +97,19 @@ public class PasosASeguirActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            View rootView = rootView = inflater.inflate(R.layout.fragment_pasos_a_seguir, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_pasos_a_seguir, container, false);
             int pagina = getArguments().getInt(ARG_SECTION_NUMBER);
             TextView textView1;
             TextView textView2;
-            RelativeLayout relativeLayout;
-            switch (pagina) {
-                case 1:
-                    textView1 = (TextView) rootView.findViewById(R.id.txt_descripcion_paso);
-                    textView1.setText(getString(textos[pagina-1]));
-                    textView2 = (TextView) rootView.findViewById(R.id.txt_numero_paso);
-                    textView2.setText("PASO 1");
-                    relativeLayout = (RelativeLayout) rootView.findViewById(R.id.layout_pasos);
-                    relativeLayout.setBackground(ContextCompat.getDrawable(getContext(), imagenes[pagina-1]));
-
-                    break;
-                case 2:
-                    textView1 = (TextView) rootView.findViewById(R.id.txt_descripcion_paso);
-                    textView1.setText(getString(textos[pagina-1]));
-                    textView2 = (TextView) rootView.findViewById(R.id.txt_numero_paso);
-                    textView2.setText("PASO 2");
-                    relativeLayout = (RelativeLayout) rootView.findViewById(R.id.layout_pasos);
-                    relativeLayout.setBackground(ContextCompat.getDrawable(getContext(), imagenes[pagina-1]));
-                    break;
-                case 3:
-                    textView1 = (TextView) rootView.findViewById(R.id.txt_descripcion_paso);
-                    textView1.setText(getString(textos[pagina-1]));
-                    textView2 = (TextView) rootView.findViewById(R.id.txt_numero_paso);
-                    textView2.setText("PASO 3");
-                    relativeLayout = (RelativeLayout) rootView.findViewById(R.id.layout_pasos);
-                    relativeLayout.setBackground(ContextCompat.getDrawable(getContext(), imagenes[pagina-1]));
-                    break;
-                case 4:
-                    textView1 = (TextView) rootView.findViewById(R.id.txt_descripcion_paso);
-                    textView1.setText(getString(textos[pagina-1]));
-                    textView2 = (TextView) rootView.findViewById(R.id.txt_numero_paso);
-                    textView2.setText("PASO 4");
-                    relativeLayout = (RelativeLayout) rootView.findViewById(R.id.layout_pasos);
-                    relativeLayout.setBackground(ContextCompat.getDrawable(getContext(), imagenes[pagina-1]));
-                    break;
-                default: break;
-            }
+            ImageView imgPasos;
+            textView1 = (TextView) rootView.findViewById(R.id.txt_descripcion_paso);
+            textView1.setText(getString(textos[pagina-1]));
+            textView2 = (TextView) rootView.findViewById(R.id.txt_numero_paso);
+            textView2.setText("PASO " + pagina);
+            imgPasos = (ImageView) rootView.findViewById(R.id.imagen_pasos_a_seguir);
+            imgPasos.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.icons));
+            Picasso.with(getContext()).load(imagenes[pagina-1]).fit().into(imgPasos);
+//            imgPasos.setBackground(ContextCompat.getDrawable(getContext(), imagenes[pagina-1]));
             return rootView;
         }
     }
