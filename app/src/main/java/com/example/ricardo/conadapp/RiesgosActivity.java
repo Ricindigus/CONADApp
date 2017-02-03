@@ -74,7 +74,7 @@ public class RiesgosActivity extends AppCompatActivity {
 
         private String imagenesHombre[] = {"http://imageshack.com/a/img923/4089/lyLsHI.png", "http://imageshack.com/a/img924/1755/O0XyeW.png",
                 "http://imageshack.com/a/img922/4066/OrRMEc.png", "http://imageshack.com/a/img924/6627/kBfKqL.png","http://imageshack.com/a/img923/1268/ufm2Kq.png",
-        "http://imageshack.com/a/img923/4973/S5SQzh.png}"};
+        "http://imageshack.com/a/img923/4973/S5SQzh.png"};
         private String imagenesMujer[] = {"http://imageshack.com/a/img924/4417/kHKvVm.png", "http://imageshack.com/a/img922/9962/2JzvJv.png",
                 "http://imageshack.com/a/img923/2932/RhvhsB.png", "http://imageshack.com/a/img924/2773/yqlGSC.png", "http://imageshack.com/a/img924/2389/dRj58T.png"};
         private String imagenesAmbos[] = {"http://imageshack.com/a/img922/9350/Ag6owx.png", "http://imageshack.com/a/img924/7328/dVAq4r.png",
