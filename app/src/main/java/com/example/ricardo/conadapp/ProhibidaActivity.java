@@ -1,9 +1,14 @@
 package com.example.ricardo.conadapp;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -25,6 +30,16 @@ public class ProhibidaActivity extends AppCompatActivity {
         }
         pdfView = (PDFView)findViewById(R.id.pdfview);
         pdfView.fromAsset("ListaProhibida2017.pdf").pages(0, 1, 2, 3, 4, 5, 6, 7, 8).enableSwipe(true).swipeHorizontal(true).load();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://conad.pe/wp-content/uploads/2016/11/Lista-Prohibida-2017.pdf");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 
     public void showToolbar(String title, boolean upButton){

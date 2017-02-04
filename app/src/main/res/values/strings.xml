@@ -8,10 +8,9 @@
     <string name="texto_opcion_riesgo">Riesgos del dopaje</string>
     <string name="texto_opcion_aut">AUT</string>
     <string name="lista_prohibida_texto">La Lista Prohibida es un documento internacional preparado por la Agencia Mundial Antidopaje en el que se identifican las sustancias y métodos prohibidos en el deporte.
-        Hay sustancias prohibidas en competencia y otras que están prohibidas fuera de competencia.
-        Conócelas AQUÍ.\nhttps://goo.gl/snwvEY\n</string>
+        Hay sustancias prohibidas en competencia y otras que están prohibidas fuera de competencia.</string>
     <string name="texto_video">Si aún no pasas un control antidopaje, este video te ilustrará los pasos
-        que deberás seguir y te instruirá en tus deberes y derechos al momento de ser seleccionado.( https://goo.gl/DMLXNW )
+        que deberás seguir y te instruirá en tus deberes y derechos al momento de ser seleccionado.( https://youtu.be/BiMlEN7610o )
     </string>
     <string name="texto_sancionado">Serás responsable de un dopaje si incurres en una de las siguientes faltas:</string>
     <string name="texto_sancionado_1">1. Presencia de una sustancia prohibida en tu muestra de orina y/o sangre.</string>
