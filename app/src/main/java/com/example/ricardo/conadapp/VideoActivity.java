@@ -2,14 +2,12 @@ package com.example.ricardo.conadapp;
 
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -92,12 +90,5 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
     public void onSeekTo(int i) {
 
     }
-//    public void showToolbar(String title, boolean upButton){
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarApp);
-//        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.video_primary));
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle(title);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-//    }
 
 }
