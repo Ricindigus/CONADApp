@@ -68,4 +68,25 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="next">Sig</string>
+    <string name="skip">Ant</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Paso 1</string>
+    <string name="slide_1_desc">Descarga el formulario de AUT</string>
+
+    <string name="slide_2_title">Paso 2</string>
+    <string name="slide_2_desc">Llena el formulario con tu médico y envíalo al correo de la comisión de AUT de la CONAD</string>
+
+    <string name="slide_3_title">Paso 3</string>
+    <string name="slide_3_desc_1">Una vez recibida tu solicitud, el panel de expertos la revisará y decidirá favorablemente en los siguientes casos:
+	</string>
+    <string name="slide_3_desc_2">Tu salud se viera significativamente afectada si no tomas esta sustancia.</string>
+    <string name="slide_3_desc_3">La sustancia no aumenta tu rendimiento, solo protege tu salud.</string>
+    <string name="slide_3_desc_4">No existan tratamientos alternativos disponibles.</string>
+    <string name="slide_4_title">Paso 4</string>
+    <string name="slide_4_desc">La CONAD te informará si tu solicitud fue aprobada. En caso de una solicitud denegada, se te informarán las razones y podrás apelar dicha decisión.</string>
+
+
 </resources>

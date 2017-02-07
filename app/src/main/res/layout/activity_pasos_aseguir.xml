@@ -1,69 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="com.example.ricardo.conadapp.PasosASeguirActivity">
-
-    <include layout="@layout/toolbar_app"/>
-
+    <android.support.design.widget.AppBarLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarApp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/icons"
+            app:theme="@style/ToolbarStyle"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/aut_primary_dark">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
+            android:id="@+id/relative_aux"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/aut_primary_light"
-            >
-            <android.support.design.widget.FloatingActionButton
-                android:paddingLeft="5dp"
-                android:id="@+id/fab_atras"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:backgroundTint="@color/aut_primary_light"
-                app:fabSize="mini"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/adelante"
-                android:rotation="180"/>
-            <TextView
-                android:textStyle="bold"
-                android:textColor="@color/aut_primary_dark"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true">
+            <Button
+                android:id="@+id/btn_skip"
                 android:gravity="center"
-                android:padding="5dp"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="@string/pasos_a_seguir"/>
-            <android.support.design.widget.FloatingActionButton
-                android:padding="0dp"
-                android:id="@+id/fab_adelante"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fabSize="mini"
-                app:backgroundTint="@color/aut_primary_light"
-                app:srcCompat="@drawable/adelante"
-                android:layout_gravity="center"
-                android:paddingRight="5dp"/>
-        </LinearLayout>
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <android.support.v4.view.ViewPager
-                android:id="@+id/aut_container"
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
-        </android.support.design.widget.CoordinatorLayout>
-
+                android:background="@null"
+                android:text="@string/skip"
+                android:textColor="@android:color/white" />
+            <LinearLayout
+                android:id="@+id/layoutDots"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:text="@string/next"
+                android:gravity="center"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".5"
+            android:layout_below="@id/relative_aux"
+            android:background="@android:color/white" />
     </LinearLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>
+
