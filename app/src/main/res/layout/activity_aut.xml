@@ -10,32 +10,54 @@
     tools:context="com.example.ricardo.conadapp.AutActivity">
 
     <include layout="@layout/toolbar_app"/>
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-        <FrameLayout
-            android:background="@drawable/tomar_medicamento"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-        </FrameLayout>
-        <LinearLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.design.widget.CoordinatorLayout
             android:orientation="vertical"
-            android:padding="@dimen/activity_vertical_margin"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
+
+            <com.github.barteksc.pdfviewer.PDFView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/pdfviewaut"
+                android:layout_width="250dp"
+                android:layout_height="match_parent">
+            </com.github.barteksc.pdfviewer.PDFView>
+            <ImageView
+                android:rotation="270"
+                android:tint="@color/aut_primary"
+                android:src="@drawable/adelante"
+                android:layout_gravity="center|top"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+            <ImageView
+                android:rotation="90"
+                android:tint="@color/aut_primary"
+                android:src="@drawable/adelante"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center|bottom"/>
+        </android.support.design.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
-                android:padding="10dp"
+                android:autoLink="web"
+                android:textColorLink="@color/busqueda_primary_dark"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/aut_texto"/>
             <Button
-                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_gravity="center"
                 android:text="¿QUÉ PASOS DEBO SEGUIR?"
                 android:layout_width="wrap_content"
@@ -45,6 +67,4 @@
                 />
         </LinearLayout>
     </LinearLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>

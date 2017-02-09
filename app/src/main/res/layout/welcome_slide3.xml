@@ -25,6 +25,7 @@
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
     </LinearLayout>
+
     <LinearLayout
         android:gravity="center|top"
         android:layout_weight="1"
@@ -42,46 +43,68 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:text="@string/slide_3_desc_2"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:background="@drawable/backwithborderblanco"/>
-            <TextView
-                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/dot"/>
+                <TextView
+                    android:gravity="top|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slide_3_desc_2"
+                    android:textSize="15sp"
+                    android:textColor="@color/icons"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:text="@string/slide_3_desc_3"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:background="@drawable/backwithborderblanco"/>
-            <TextView
-                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/dot"/>
+                <TextView
+                    android:gravity="top|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slide_3_desc_3"
+                    android:textSize="15sp"
+                    android:textColor="@color/icons"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:text="@string/slide_3_desc_4"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:background="@drawable/backwithborderblanco"/>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/dot"/>
+                <TextView
+                    android:gravity="top|left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slide_3_desc_4"
+                    android:textSize="15sp"
+                    android:textColor="@color/icons"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -168,6 +168,22 @@
                         android:id="@+id/imagen_deporte_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <TextView
+                            android:textStyle="bold"
+                            android:background="#55000000"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="@string/vida_deportiva_texto5"
+                            android:textColor="@color/icons"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
                 </FrameLayout>
             </LinearLayout>
         </ScrollView>

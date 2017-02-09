@@ -50,10 +50,7 @@ public class PasosASeguirActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.aut_primary_dark));
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarApp);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("¿Qué pasos debo seguir?");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        showToolbar("¿Qué pasos debo seguir?", true);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
@@ -216,6 +213,13 @@ public class PasosASeguirActivity extends AppCompatActivity {
             View view = (View) object;
             container.removeView(view);
         }
+    }
+    public void showToolbar(String title, boolean upButton){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarApp);
+        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.aut_primary));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
 }
