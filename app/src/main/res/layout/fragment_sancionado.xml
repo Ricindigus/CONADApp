@@ -1,35 +1,44 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ricardo.conadapp.fragments.SancionadoFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/imagen_fragment_sancionado"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/default_image"/>
+    android:orientation="vertical"
+    android:background="@color/bg_screen1">
     <LinearLayout
-        android:layout_gravity="top"
-        android:id="@+id/layout_fragment_sancionado"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:gravity="center_vertical"
-            android:padding="@dimen/activity_vertical_margin"
-            android:id="@+id/texto_fragment_sancionado"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="#55000000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/texto_sancionado_1" />
+        android:layout_height="50dp"></LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:layout_height="0dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagen_pantalla"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/descargar_documento"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/dot_dark_sancionado1"/>
     </LinearLayout>
-
-</FrameLayout>
-
-
-
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:id="@+id/texto2_pantalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:text="@string/slide_1_desc"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="15dp" />
+    </LinearLayout>
+</LinearLayout>

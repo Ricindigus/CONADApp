@@ -13,15 +13,15 @@
         que deberás seguir y te instruirá en tus deberes y derechos al momento de ser seleccionado.( https://youtu.be/BiMlEN7610o )
     </string>
     <string name="texto_sancionado">Serás responsable de un dopaje si incurres en una de las siguientes faltas:</string>
-    <string name="texto_sancionado_1">1. Presencia de una sustancia prohibida en tu muestra de orina y/o sangre.</string>
-    <string name="texto_sancionado_2">2. Negativa a realizar un control luego de haber sido notificado.</string>
-    <string name="texto_sancionado_3">3. Alteración del proceso de control al dopaje.</string>
-    <string name="texto_sancionado_4">4. Posesión de una sustancia o método prohibido.</string>
-    <string name="texto_sancionado_5">5. Administración o intento de administración de una sustancia o método prohibido a un deportista.</string>
-    <string name="texto_sancionado_6">6. Incumplimiento de localización en el paradero de los deportistas o faltas a los controles.</string>
-    <string name="texto_sancionado_7">7. Uso o intento de uso de una sustancia o método prohibido.</string>
-    <string name="texto_sancionado_8">8. Tráfico o intento de tráfico de sustancia o método prohibido</string>
-    <string name="texto_sancionado_9">9. Complicidad: asistir, alentar, ayudar, colaborar, conspirar,
+    <string name="texto_sancionado_1">Presencia de una sustancia prohibida en tu muestra de orina y/o sangre.</string>
+    <string name="texto_sancionado_2">Negativa a realizar un control luego de haber sido notificado.</string>
+    <string name="texto_sancionado_3">Alteración del proceso de control al dopaje.</string>
+    <string name="texto_sancionado_4">Posesión de una sustancia o método prohibido.</string>
+    <string name="texto_sancionado_5">Administración o intento de administración de una sustancia o método prohibido a un deportista.</string>
+    <string name="texto_sancionado_6">Incumplimiento de localización en el paradero de los deportistas o faltas a los controles.</string>
+    <string name="texto_sancionado_7">Uso o intento de uso de una sustancia o método prohibido.</string>
+    <string name="texto_sancionado_8">Tráfico o intento de tráfico de sustancia o método prohibido</string>
+    <string name="texto_sancionado_9">Complicidad: asistir, alentar, ayudar, colaborar, conspirar,
         encubrir o cualquier tipo de complicidad intencional que vaya en contra de las normas de antidopaje</string>
     <string name="texto_sancionado_10">10. Asociación prohibida: los deportistas y otras personas
         dependientes de una organización antidopaje no pueden trabajar con entrenadores, médicos o
@@ -88,5 +88,16 @@
     <string name="slide_4_title">Paso 4</string>
     <string name="slide_4_desc">La CONAD te informará si tu solicitud fue aprobada. En caso de una solicitud denegada, se te informarán las razones y podrás apelar dicha decisión.</string>
 
-
+    <array name="arraytextosprincipales">
+        <item>@string/texto_sancionado_1</item>
+        <item>@string/texto_sancionado_2</item>
+        <item>@string/texto_sancionado_3</item>
+        <item>@string/texto_sancionado_4</item>
+        <item>@string/texto_sancionado_5</item>
+        <item>@string/texto_sancionado_6</item>
+        <item>@string/texto_sancionado_7</item>
+        <item>@string/texto_sancionado_8</item>
+        <item>@string/texto_sancionado_9</item>
+        <item>@string/texto_sancionado_10</item>
+    </array>
 </resources>

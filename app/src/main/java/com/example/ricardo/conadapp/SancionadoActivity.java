@@ -1,33 +1,37 @@
 package com.example.ricardo.conadapp;
 
-import android.annotation.SuppressLint;
-import android.support.annotation.IdRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.content.Context;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.example.ricardo.conadapp.fragments.SancionadoFragment;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SancionadoActivity extends AppCompatActivity {
-    int controlador = 0;
-    private float x1,x2;
-    static final int MIN_DISTANCE = 150;
-    int[] fragments = {R.id.tab_1, R.id.tab_2, R.id.tab_3, R.id.tab_4, R.id.tab_5,
-            R.id.tab_6, R.id.tab_7, R.id.tab_8, R.id.tab_9, R.id.tab_10};
-    int fragmentActual = 0;
-    int fragmentAnterior = 0;
-    Fragment fragment;
-    BottomBar bottomBar;
-    Toolbar toolbar;
+    private ViewPager viewPager;
+    private MyViewPagerAdapter myViewPagerAdapter;
+    private LinearLayout dotsLayout;
+    private TextView[] dots;
+    private int[] layouts;
+    private int[] coloresPantalla;
+    private int[] colorBordes;
+    private int[] imagenesPantalla;
+    private String[] textosPantalla;
+    private ImageButton btnSkip, btnNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,129 +43,158 @@ public class SancionadoActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.sancionado_primary_dark));
         }
-        bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        bottomBar.setDefaultTab(fragments[fragmentActual]);
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+        btnSkip = (ImageButton) findViewById(R.id.btn_skip);
+        btnNext = (ImageButton) findViewById(R.id.btn_next);
+
+        // layouts of all welcome sliders
+        // add few more layouts if you want
+        layouts = new int[10];
+        layouts[0] = R.layout.fragment_sancionado;
+        imagenesPantalla = new int[]{
+                R.drawable.muestra_orina,
+                R.drawable.control_doping,
+                R.drawable.alteracion_doping,
+                R.drawable.sustancia_prohibida,
+                R.drawable.administracion_doping,
+                R.drawable.falta_doping,
+                R.drawable.uso_sustancia_prohibida,
+                R.drawable.trafico_sustancia_prohibida,
+                R.drawable.conspiracion_dopaje,
+                R.drawable.asociacion_prohibida};
+        coloresPantalla = getResources().getIntArray(R.array.array_screens_sancionado);
+        colorBordes = getResources().getIntArray(R.array.array_dot_inactive_sancionado);
+        textosPantalla = getResources().getStringArray(R.array.arraytextosprincipales);
+        // adding bottom dots
+        addBottomDots(0);
+
+        myViewPagerAdapter = new MyViewPagerAdapter();
+        viewPager.setAdapter(myViewPagerAdapter);
+        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+
+        btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId) {
-                if(controlador == 1){
-                    switch(tabId){
-                        case R.id.tab_1:
-                            fragment = new SancionadoFragment(0);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 0;
-                            break;
-                        case R.id.tab_2:
-                            fragment = new SancionadoFragment(1);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 1;
-                            break;
-                        case R.id.tab_3:
-                            fragment = new SancionadoFragment(2);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 2;
-                            break;
-                        case R.id.tab_4:
-                            fragment = new SancionadoFragment(3);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 3;
-                            break;
-                        case R.id.tab_5:
-                            fragment = new SancionadoFragment(4);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 4;
-                            break;
-                        case R.id.tab_6:
-                            fragment = new SancionadoFragment(5);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 5;
-                            break;
-                        case R.id.tab_7:
-                            fragment = new SancionadoFragment(6);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 6;
-                            break;
-                        case R.id.tab_8:
-                            fragment = new SancionadoFragment(7);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 7;
-                            break;
-                        case R.id.tab_9:
-                            fragment = new SancionadoFragment(8);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 8;
-                            break;
-                        case R.id.tab_10:
-                            fragment = new SancionadoFragment(9);
-                            fragmentAnterior = fragmentActual;
-                            fragmentActual = 9;
-                            break;
-                        default:break;
-                    }
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    if(fragmentActual > fragmentAnterior)
-                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                    else
-                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                    fragmentTransaction.replace(R.id.contentContainer, fragment);
-                    fragmentTransaction.addToBackStack(null).commit();
-                }
-                else{controlador = 1;}
+            public void onClick(View v) {
+                int current = getItem(-1);
+                if (current > -1) {
+                    // move to next screen
+                    viewPager.setCurrentItem(current);}
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // checking for last page
+                // if last page home screen will be launched
+                int current = getItem(+1);
+                if (current < layouts.length) {
+                    // move to next screen
+                    viewPager.setCurrentItem(current);}
             }
         });
     }
-    @Override
-    public boolean onTouchEvent(MotionEvent event)
-    {
-        switch(event.getAction())
-        {
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltaX = x2 - x1;
 
-                if (Math.abs(deltaX) > MIN_DISTANCE)
-                {
-                    // Left to Right swipe action
-                    if (x2 > x1)
-                    {
-                        if(fragmentActual > 0){
-                            bottomBar.selectTabAtPosition(fragmentActual-1);
-                        }
-                    }
-                    // Right to left swipe action
-                    else
-                    {
-                        if(fragmentActual < 9) {
-                            bottomBar.selectTabAtPosition(fragmentActual+1);
-                        }
-                    }
-                }
-                else
-                {
-                    // consider as something else - a screen tap for example
-                }
-                break;
+    private void addBottomDots(int currentPage) {
+        dots = new TextView[layouts.length];
+        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active_sancionado);
+        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive_sancionado);
+
+        dotsLayout.removeAllViews();
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(colorsInactive[currentPage]);
+            dotsLayout.addView(dots[i]);
         }
-        return super.onTouchEvent(event);
+        dots[currentPage].setTextColor(colorsActive[currentPage]);
+//        if (dots.length > 0)
+//            dots[currentPage].setTextColor(colorsActive[currentPage]);
+    }
+
+    private int getItem(int i) {
+        return viewPager.getCurrentItem() + i;
+    }
+
+
+    //  viewpager change listener
+    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageSelected(int position) {
+            addBottomDots(position);
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+
+        }
+    };
+
+    /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.sancionado_primary_dark));
+        }
+    }
+
+    /**
+     * View pager adapter
+     */
+    public class MyViewPagerAdapter extends PagerAdapter {
+        private LayoutInflater layoutInflater;
+
+        public MyViewPagerAdapter() {
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = layoutInflater.inflate(layouts[0], container, false);
+            LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.layout_principal);
+            linearLayout.setBackgroundColor(coloresPantalla[position]);
+            CircleImageView circleImageView = (CircleImageView)view.findViewById(R.id.imagen_pantalla);
+            circleImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imagenesPantalla[position]));
+            circleImageView.setBorderColor(colorBordes[position]);
+            TextView textView2 = (TextView)view.findViewById(R.id.texto2_pantalla);
+            textView2.setText(textosPantalla[position]);
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public int getCount() {
+            return layouts.length;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object obj) {
+            return view == obj;
+        }
+
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            View view = (View) object;
+            container.removeView(view);
+        }
     }
     public void showToolbar(String title, boolean upButton){
-        toolbar = (Toolbar) findViewById(R.id.toolbarApp);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarApp);
         toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.sancionado_primary));
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
-
-    @SuppressLint("NewApi")
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // TODO Auto-generated method stub
-        if (keyCode == event.KEYCODE_BACK) {
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
 }

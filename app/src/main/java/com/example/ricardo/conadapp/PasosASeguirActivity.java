@@ -3,6 +3,7 @@ package com.example.ricardo.conadapp;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -188,8 +189,9 @@ public class PasosASeguirActivity extends AppCompatActivity {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
+                        Uri uri = Uri.parse("http://conad.pe/wp-content/uploads/2016/11/Formulario-AUT-2016.pdf");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
                     }
                 });
             }

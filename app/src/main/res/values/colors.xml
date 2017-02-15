@@ -89,4 +89,85 @@
         <item>@color/sancionado_primary_dark</item>
         <item>@color/busqueda_primary_dark</item>
     </array>
+
+
+
+
+    <!-- Screens background color-->
+    <color name="bg_sancionado1">#f64c73</color>
+    <color name="bg_sancionado2">#20d2bb</color>
+    <color name="bg_sancionado3">#795548</color>
+    <color name="bg_sancionado4">#c873f4</color>
+    <color name="bg_sancionado5">#F44336</color>
+    <color name="bg_sancionado6">#009688</color>
+    <color name="bg_sancionado7">#FF5722</color>
+    <color name="bg_sancionado8">#3F51B5</color>
+    <color name="bg_sancionado9">#FFC107</color>
+    <color name="bg_sancionado10">#607D8B</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_sancionado1">#d1395c</color>
+    <color name="dot_dark_sancionado2">#14a895</color>
+    <color name="dot_dark_sancionado3">#5D4037</color>
+    <color name="dot_dark_sancionado4">#a854d4</color>
+    <color name="dot_dark_sancionado5">#D32F2F</color>
+    <color name="dot_dark_sancionado6">#00796B</color>
+    <color name="dot_dark_sancionado7">#E64A19</color>
+    <color name="dot_dark_sancionado8">#303F9F</color>
+    <color name="dot_dark_sancionado9">#FFA000</color>
+    <color name="dot_dark_sancionado10">#455A64</color>
+
+
+
+    <!-- dots active colors -->
+    <color name="dot_light_sancionado1">#f98da5</color>
+    <color name="dot_light_sancionado2">#8cf9eb</color>
+    <color name="dot_light_sancionado3">#D7CCC8</color>
+    <color name="dot_light_sancionado4">#e4b5fc</color>
+    <color name="dot_light_sancionado5">#FFCDD2</color>
+    <color name="dot_light_sancionado6">#B2DFDB</color>
+    <color name="dot_light_sancionado7">#FFCCBC</color>
+    <color name="dot_light_sancionado8">#C5CAE9</color>
+    <color name="dot_light_sancionado9">#FFECB3</color>
+    <color name="dot_light_sancionado10">#CFD8DC</color>
+
+
+    <array name="array_screens_sancionado">
+        <item>@color/bg_sancionado1</item>
+        <item>@color/bg_sancionado2</item>
+        <item>@color/bg_sancionado3</item>
+        <item>@color/bg_sancionado4</item>
+        <item>@color/bg_sancionado5</item>
+        <item>@color/bg_sancionado6</item>
+        <item>@color/bg_sancionado7</item>
+        <item>@color/bg_sancionado8</item>
+        <item>@color/bg_sancionado9</item>
+        <item>@color/bg_sancionado10</item>
+    </array>
+
+    <array name="array_dot_active_sancionado">
+        <item>@color/dot_light_sancionado1</item>
+        <item>@color/dot_light_sancionado2</item>
+        <item>@color/dot_light_sancionado3</item>
+        <item>@color/dot_light_sancionado4</item>
+        <item>@color/dot_light_sancionado5</item>
+        <item>@color/dot_light_sancionado6</item>
+        <item>@color/dot_light_sancionado7</item>
+        <item>@color/dot_light_sancionado8</item>
+        <item>@color/dot_light_sancionado9</item>
+        <item>@color/dot_light_sancionado10</item>
+    </array>
+
+    <array name="array_dot_inactive_sancionado">
+        <item>@color/dot_dark_sancionado1</item>
+        <item>@color/dot_dark_sancionado2</item>
+        <item>@color/dot_dark_sancionado3</item>
+        <item>@color/dot_dark_sancionado4</item>
+        <item>@color/dot_dark_sancionado5</item>
+        <item>@color/dot_dark_sancionado6</item>
+        <item>@color/dot_dark_sancionado7</item>
+        <item>@color/dot_dark_sancionado8</item>
+        <item>@color/dot_dark_sancionado9</item>
+        <item>@color/dot_dark_sancionado10</item>
+    </array>
 </resources>
