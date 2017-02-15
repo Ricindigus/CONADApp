@@ -48,8 +48,7 @@ public class SancionadoActivity extends AppCompatActivity {
         btnSkip = (ImageButton) findViewById(R.id.btn_skip);
         btnNext = (ImageButton) findViewById(R.id.btn_next);
 
-        // layouts of all welcome sliders
-        // add few more layouts if you want
+
         layouts = new int[10];
         layouts[0] = R.layout.fragment_sancionado;
         imagenesPantalla = new int[]{
